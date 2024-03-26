@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "225599941377",
+    "project_id": "notetaker-practiceapp-55afd",
+    "storage_bucket": "notetaker-practiceapp-55afd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225599941377:android:eb4d4b4598da37ec84c900",
+        "android_client_info": {
+          "package_name": "com.NobleNine.notetaker_practiceapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcEVF8Gz6mj21Jq-jgNRPRklB6Cn5042k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

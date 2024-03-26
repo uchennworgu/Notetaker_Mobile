@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyARo7cetAy3a9ToJs7JrZTKs7LlXDA0x9A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>225599941377</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.NobleNine.notetakerPracticeapp</string>
+	<key>PROJECT_ID</key>
+	<string>notetaker-practiceapp-55afd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>notetaker-practiceapp-55afd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:225599941377:ios:6a058c19dfc051e584c900</string>
+</dict>
+</plist>
