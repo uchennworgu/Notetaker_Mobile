@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:notetaker_practiceapp/firebase_options.dart';
 import 'package:notetaker_practiceapp/views/login_view.dart';
+import 'package:notetaker_practiceapp/views/notes_view.dart';
 import 'package:notetaker_practiceapp/views/register_view.dart';
 import 'package:notetaker_practiceapp/views/verify_email_view.dart';
 
@@ -43,6 +44,7 @@ class HomePage
                     if (user != null){
                       if (user.emailVerified){
                         print('you are a verified user!');
+                        return const NotesView();
                       }
                       else{
                         return const VerifyEmailView();
@@ -51,8 +53,7 @@ class HomePage
                     else{
                       return const LoginView();
                     }
-                  
-                  return const Text('Done');
+
                  default:
               return const CircularProgressIndicator();
               }
@@ -61,6 +62,8 @@ class HomePage
   }
 
 }
+
+
 
 
 
