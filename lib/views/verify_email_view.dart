@@ -1,6 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:notetaker_practiceapp/constants/route.dart';
+import 'package:notetaker_practiceapp/services/auth/auth_service.dart';
 
 class VerifyEmailView extends StatefulWidget {
   const VerifyEmailView({super.key});
@@ -23,14 +23,13 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
           const Text('If you do not see the email in the next few buttons, please click the button below to send another verification email.'),
           TextButton(
             onPressed: () async {
-              final user = FirebaseAuth.instance.currentUser;
-              await user?.sendEmailVerification();
+              AuthService.firebase().sendEmailVerification();
                 }, 
               child: const Text('Re-send email verification'),
               ),
           TextButton(
             onPressed: () async{
-                await FirebaseAuth.instance.signOut();
+                AuthService.firebase().sendEmailVerification();
                 Navigator.of(context).pushNamedAndRemoveUntil(
                   registerRoute, 
                   (route) => false,

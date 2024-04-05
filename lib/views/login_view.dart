@@ -1,8 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer' as devtools show log;
-
 import 'package:notetaker_practiceapp/constants/route.dart';
+import 'package:notetaker_practiceapp/services/auth/auth_exceptions.dart';
+import 'package:notetaker_practiceapp/services/auth/auth_service.dart';
 import 'package:notetaker_practiceapp/utilities/show_error_dialog.dart';
 
 
@@ -66,13 +66,13 @@ class _LoginViewState extends State<LoginView> {
                   
                    try{
                     //final userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                    await FirebaseAuth.instance.signInWithEmailAndPassword(
+                    await AuthService.firebase().logIn(
                       email: email, 
                       password: password,
                     );
                     //devtools.log(userCredential.toString());
-                    final user = FirebaseAuth.instance.currentUser;
-                    if (user?.emailVerified ?? false){
+                    final user = AuthService.firebase().currentUser;
+                    if (user?.isEmailVerified ?? false){
                        Navigator.of(context).pushNamedAndRemoveUntil(
                       notesRoute, 
                       (_) => false,
@@ -85,29 +85,19 @@ class _LoginViewState extends State<LoginView> {
                     );
                     }
                    
-                   }
-                   on FirebaseAuthException catch (e) {
-                    if (e.code == 'invalid-credential'){
+                   } on InvalidCredentialAuthException {
                       devtools.log('user not found or combination incorrect');
                       await showErrorDialog(context, 'User not found or incorrect combination');
-                    }
-                     if (e.code == 'invalid-email'){
+                   }
+                   on InvalidEmailAuthException{
                       devtools.log('Email is not valid');
                       await showErrorDialog(context, 'Email is not valid.');
-                    }
-                    else{
-                      devtools.log('SOMETHING ELSE HAPPENED');
-                      devtools.log(e.code);
-                      await showErrorDialog(context, 'Error: ${e.code}');
-                    }
                    }
-                    catch (e) {
-                  //     print('Login failed.');
-                  //     print(e);
-                      await showErrorDialog(context, e.toString());
-
-                    }
-               
+                   on GenericAuthException{
+                      await showErrorDialog(
+                        context, 
+                        'Authentication Error');
+                   }
                   },
                     child: const Text('Login'),
                   ),
