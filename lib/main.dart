@@ -42,7 +42,7 @@ class HomePage
                   	final user =AuthService.firebase().currentUser;
                     devtools.log(user.toString());
                     if (user != null){
-                      if (user.isEmailVerified){
+                      if (user.isEmailVerified ){
                         devtools.log('you are a verified user!');
                         return const NotesView();
                       }
