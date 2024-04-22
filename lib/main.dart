@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:notetaker_practiceapp/constants/route.dart';
 import 'package:notetaker_practiceapp/services/auth/auth_service.dart';
 import 'package:notetaker_practiceapp/views/login_view.dart';
-import 'package:notetaker_practiceapp/views/notes_view.dart';
+import 'package:notetaker_practiceapp/views/notes/new_note_view.dart';
+import 'package:notetaker_practiceapp/views/notes/notes_view.dart';
 import 'package:notetaker_practiceapp/views/register_view.dart';
 import 'package:notetaker_practiceapp/views/verify_email_view.dart';
 import 'dart:developer' as devtools show log;
@@ -23,6 +24,7 @@ void main() {
         registerRoute: (context)=> const RegisterView(),
         notesRoute: (context)=> const NotesView(),
         verifyEmailRoute: (context)=> const VerifyEmailView(),
+        NewNoteRoute:(context) => const NewNoteView(),
       },
     ));
 }
