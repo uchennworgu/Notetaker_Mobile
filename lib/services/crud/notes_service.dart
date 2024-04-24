@@ -16,11 +16,16 @@ class NotesService{
   List<DatabaseNote> _notes = [];
 
   static final NotesService _shared = NotesService._sharedInstance();
-  NotesService._sharedInstance();
+  NotesService._sharedInstance(){
+    _notesStreamController = StreamController<List<DatabaseNote>>.broadcast(
+      onListen: () {
+        _notesStreamController.sink.add(_notes);
+      },
+    );
+  }
   factory NotesService() => _shared;
 
-  final _notesStreamController = 
-      StreamController<List<DatabaseNote>>.broadcast();
+  late final StreamController<List<DatabaseNote>> _notesStreamController;
 
   Stream<List<DatabaseNote>> get allNotes=> _notesStreamController.stream;
 
@@ -74,7 +79,9 @@ class NotesService{
     final notes = await db.query(
       noteTable
       );
-    return notes.map((noteRow) => DatabaseNote.fromRow(noteRow));
+        
+      return notes.map((noteRow) => DatabaseNote.fromRow(noteRow));
+
   }
 
   Future<DatabaseNote> getNote({required int id}) async{
@@ -86,6 +93,8 @@ class NotesService{
       where: 'id = ? ', 
       whereArgs: [id],
       );
+      //FINDING OUT WHAT WAS RETURNED
+      //print(notes);
       if (notes.isEmpty){
         throw CouldNotFindNote();
       } else{
@@ -186,14 +195,14 @@ class NotesService{
         throw UserAlreadyExists();
       }
     final userId = await db.insert(userTable, {
-      emailColumn : email.toLowerCase()
+      emailColumn : email.toLowerCase(),
     });
 
     return DatabaseUser(id: userId, email: email);
 
   }
 
-  Future<void> deleteuser({required String email}) async{
+  Future<void> deleteUser({required String email}) async{
   await _ensureDbIsOpen();
   final db = _getDatabaseOrThrow();
   final deletedCount = await db.delete(
@@ -302,7 +311,7 @@ class DatabaseNote{
   userId = map[userIdColumn] as int,
   text = map[textColumn] as String,
   isSyncedWithCloud =
-   (map[isSyncedWithCloudColumn] as int) == 1 ? true : false;
+   (map[isSyncedWithCloudColumn] as int?) == 1 ? true : false;
 
 @override
   String toString() => 'Note, ID = $id, userId = $userId, isSyncedWithCloud = $isSyncedWithCloud, text = $text';
@@ -313,13 +322,13 @@ class DatabaseNote{
 }
 
 const dbName='notes.db';
-const noteTable = 'note';
-const userTable = 'user';
+const noteTable = 'Note';
+const userTable = 'User';
 const idColumn = 'id';
 const emailColumn = 'email';
-const userIdColumn = 'user_Id';
+const userIdColumn = 'user_id';
 const textColumn = 'text';
-const isSyncedWithCloudColumn = 'is_synced_with_clud';
+const isSyncedWithCloudColumn = 'is_synced_with_cloud';
 const createUserTable = ''' CREATE TABLE IF NOT EXISTS "User" (
       "id"	INTEGER NOT NULL,
       "email"	TEXT NOT NULL UNIQUE,
@@ -327,7 +336,7 @@ const createUserTable = ''' CREATE TABLE IF NOT EXISTS "User" (
     );
     ''';
 const createNoteTable = '''
-  CREATE TABLE "note" (
+  CREATE TABLE IF NOT EXISTS "Note" (
     "id"	INTEGER NOT NULL,
     "user_id"	INTEGER NOT NULL,
     "text"	TEXT,
