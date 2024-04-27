@@ -3,18 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:notetaker_practiceapp/services/crud/notes_service.dart';
 import 'package:notetaker_practiceapp/utilities/dialogs/delete_dialog.dart';
 
-typedef DeleteNoteCallback = void Function (DatabaseNote note);
+typedef NoteCallback = void Function (DatabaseNote note);
 
 
 class NotesListView extends StatelessWidget {
 
   final List<DatabaseNote> notes;
-  final DeleteNoteCallback onDeleteNote;
+  final NoteCallback onDeleteNote;
+  final NoteCallback onTap;
 
   const NotesListView({
     super.key, 
     required this.notes, 
-    required this.onDeleteNote
+    required this.onDeleteNote, 
+    required this.onTap,
     });
 
   @override
@@ -24,6 +26,12 @@ class NotesListView extends StatelessWidget {
       itemBuilder: (context, index) {
         final note = notes[index];
         return ListTile(
+          //this is the on tap parameter thats buit into list tile widget
+          onTap: (){
+            //this is the on tap call back we defined above, to tell the call site 
+            // that a function should be executed based on the note it sends back
+            onTap(note);
+          },
           title: Text(
             note.text,
             maxLines: 1,
