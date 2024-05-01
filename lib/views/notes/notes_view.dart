@@ -22,7 +22,7 @@ class _NotesViewState extends State<NotesView> {
   late final NotesService _notesService;
 
   // retrieve email from firbase user info.
-  String get UserEmail => AuthService.firebase().currentUser!.email!;
+  String get UserEmail => AuthService.firebase().currentUser!.email;
 
   @override
   void initState(){

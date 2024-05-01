@@ -119,6 +119,7 @@ import 'package:test/test.dart';
     if (email == 'foo@bar.com') throw InvalidCredentialAuthException();
     if (password == 'foobar') throw InvalidCredentialAuthException();
     const user = AuthUser(
+      id: 'my_id',
       isEmailVerified: false, 
       email: 'foo@bar.com', 
     );
@@ -140,6 +141,7 @@ import 'package:test/test.dart';
     final user = _user;
     if (user == null) throw UserNotLoggedInAuthException;
     const newUser = AuthUser(
+      id: 'my_id',
       isEmailVerified: true, 
       email: 'foo@bar.com',
       );
