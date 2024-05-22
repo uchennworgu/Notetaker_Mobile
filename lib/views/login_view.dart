@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:developer' as devtools show log;
 import 'package:notetaker_practiceapp/constants/route.dart';
 import 'package:notetaker_practiceapp/services/auth/auth_exceptions.dart';
-import 'package:notetaker_practiceapp/services/auth/auth_service.dart';
+import 'package:notetaker_practiceapp/services/auth/bloc/auth_bloc.dart';
+import 'package:notetaker_practiceapp/services/auth/bloc/auth_event.dart';
 import 'package:notetaker_practiceapp/utilities/dialogs/error_dialog.dart';
 
 
@@ -65,26 +67,11 @@ class _LoginViewState extends State<LoginView> {
                    final password = _password.text;
                   
                    try{
-                    //final userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                    await AuthService.firebase().logIn(
-                      email: email, 
-                      password: password,
-                    );
-                    //devtools.log(userCredential.toString());
-                    final user = AuthService.firebase().currentUser;
-                    if (user?.isEmailVerified ?? false){
-                       Navigator.of(context).pushNamedAndRemoveUntil(
-                      notesRoute, 
-                      (_) => false,
-                    );
-                    }
-                    else{
-                       Navigator.of(context).pushNamedAndRemoveUntil(
-                      verifyEmailRoute, 
-                      (_) => false,
-                    );
-                    }
-                   
+                    context.read<AuthBloc>().add(
+                      AuthEventLogIn(
+                        email,
+                        password
+                        ));
                    } on InvalidCredentialAuthException {
                       devtools.log('user not found or combination incorrect');
                       await showErrorDialog(context, 'User not found or incorrect combination');
