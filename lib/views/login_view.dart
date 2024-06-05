@@ -19,7 +19,7 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   late final TextEditingController _email;
   late final TextEditingController _password;
-  ClosedDialog? _closeDialogueHandle;
+
 
   @override
   void initState() {
@@ -40,18 +40,6 @@ class _LoginViewState extends State<LoginView> {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) async {
         if (state is AuthStateLoggedOut) {
-          final closeDialog = _closeDialogueHandle;
-
-          if (!state.isLoading && closeDialog != null ){
-            closeDialog();
-            _closeDialogueHandle = null;
-        } else if (state.isLoading && closeDialog == null ){
-            _closeDialogueHandle = showLoadingDialog(
-              context: context,
-               text: 'Loading...',
-               );
-          }
-
           if (state.exception is InvalidCredentialAuthException) {
             await showErrorDialog(
             context, 'Invalid Credential Combination');
