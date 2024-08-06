@@ -22,28 +22,30 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
         title: Text('Verify Email'),
         foregroundColor: (Colors.white),
         backgroundColor: (Colors.blue),),
-      body: Column(
-        children: [
-          const Text("A verification email has been sent to your provided email. Please click on the link to within the email to verify your account."),
-          const Text('If you do not see the email in the next few buttons, please click the button below to send another verification email.'),
-          TextButton(
-            onPressed: () async {
-                context.read<AuthBloc>().add(
-                  AuthEventSendEmailVerification()
-                  );
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const Text("A verification email has been sent to your provided email. Please click on the link to within the email to verify your account."),
+            const Text('If you do not see the email in the next few buttons, please click the button below to send another verification email.'),
+            TextButton(
+              onPressed: () async {
+                  context.read<AuthBloc>().add(
+                    AuthEventSendEmailVerification()
+                    );
+                  }, 
+                child: const Text('Re-send email verification'),
+                ),
+            TextButton(
+              onPressed: () {
+                  context.read<AuthBloc>().add(
+                    AuthEventLogOut()
+                    );
                 }, 
-              child: const Text('Re-send email verification'),
-              ),
-          TextButton(
-            onPressed: () {
-                context.read<AuthBloc>().add(
-                  AuthEventLogOut()
-                  );
-              }, 
-              child: const Text('Restart'),
-              ),
-              ],
-              ),
+                child: const Text('Restart'),
+                ),
+                ],
+                ),
+      ),
     );
   }
 }
