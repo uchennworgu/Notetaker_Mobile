@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:notetaker_practiceapp/helpers/loading/loading_screen_controller.dart';
 
 class LoadingScreen{
@@ -36,8 +35,8 @@ class LoadingScreen{
     required String text,
   }){
 
-    final  _text = StreamController<String>();
-    _text.add(text);
+    final  text0 = StreamController<String>();
+    text0.add(text);
 
     final state = Overlay.of(context);
     final renderBox = context.findRenderObject() as RenderBox;
@@ -65,11 +64,11 @@ class LoadingScreen{
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       const CircularProgressIndicator(),
                       const SizedBox(height: 20),
                       StreamBuilder(
-                        stream: _text.stream, 
+                        stream: text0.stream, 
                         builder: (context,snapshot){
                             if (snapshot.hasData){
                               return Text(snapshot.data as String,
@@ -90,15 +89,15 @@ class LoadingScreen{
       },
       );
 
-  state?.insert(overlay);
+  state.insert(overlay);
 
   return LoadingScreenController(
     close: (){
-    _text.close();
+    text0.close();
     overlay.remove();
     return true;
   }, update: (text){
-    _text.add(text);
+    text0.add(text);
     return true;
   },
   );

@@ -19,8 +19,8 @@ class AuthStateForgotPassword extends AuthState{
   const AuthStateForgotPassword({
     required this.exception,
     required this.hasSentEmail,
-    required bool isLoading,
-    }) : super(isLoading: isLoading) ;
+    required super.isLoading,
+    }) ;
 }
 
 class AuthStateRegistering extends AuthState{
@@ -47,12 +47,9 @@ class AuthStateLoggedOut extends AuthState with EquatableMixin{
   final Exception? exception;
   const AuthStateLoggedOut({
     required this.exception,
-    required bool isLoading,
-    String? loadingText
-    }) : super(
-      isLoading: isLoading,
-      loadingText: loadingText
-    );
+    required super.isLoading,
+    super.loadingText = null
+    });
     
       @override
       List<Object?> get props => [exception,isLoading];

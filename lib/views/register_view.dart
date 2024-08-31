@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'dart:developer' as devtools show log;
+import 'package:notetaker_practiceapp/extensions/buildcontext/loc.dart';
 
-import 'package:notetaker_practiceapp/constants/route.dart';
 import 'package:notetaker_practiceapp/services/auth/auth_exceptions.dart';
-import 'package:notetaker_practiceapp/services/auth/auth_service.dart';
 import 'package:notetaker_practiceapp/services/auth/bloc/auth_bloc.dart';
 import 'package:notetaker_practiceapp/services/auth/bloc/auth_event.dart';
 import 'package:notetaker_practiceapp/services/auth/bloc/auth_state.dart';
@@ -44,20 +42,20 @@ class _RegisterViewState extends State<RegisterView> {
       listener: (context , state) async {
         if (state is AuthStateRegistering){
           if (state.exception is WeakPasswordAuthException){
-              await showErrorDialog(context, 'Weak password');
+              await showErrorDialog(context, context.loc.register_error_weak_password);
           } else if (state.exception is EmailAlreadyInUseAuthException){
-              await showErrorDialog(context, 'Email already in use');
+              await showErrorDialog(context, context.loc.register_error_email_already_in_use);
           } else if (state.exception is InvalidEmailAuthException){
-              await showErrorDialog(context, 'Invalid Email');
+              await showErrorDialog(context, context.loc.register_error_invalid_email);
           } else if (state.exception is GenericAuthException){
-              await showErrorDialog(context, 'Failed to register');
+              await showErrorDialog(context, context.loc.register_error_generic);
             }
           
         }
       },
       child: Scaffold(
         appBar:AppBar(
-          title: const Text('Register'),
+          title:  Text(context.loc.register),
           foregroundColor: (Colors.white),
           backgroundColor: (Colors.blue),) ,
         body: Padding(
@@ -66,7 +64,7 @@ class _RegisterViewState extends State<RegisterView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Enter your email and password to see your notes!'),
+                 Text(context.loc.register_view_prompt),
                 
                 TextField(
                   controller: _email,
@@ -74,8 +72,8 @@ class _RegisterViewState extends State<RegisterView> {
                   autocorrect: false,
                   autofocus: true,
                   keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    hintText: 'Enter your email here',
+                  decoration:  InputDecoration(
+                    hintText: context.loc.email_text_field_placeholder,
                   ),
                 ),
                 TextField(
@@ -83,8 +81,8 @@ class _RegisterViewState extends State<RegisterView> {
                   obscureText: true,
                   enableSuggestions: false,
                   autocorrect: false,
-                    decoration: const InputDecoration(
-                    hintText: 'Enter your password here',
+                    decoration:  InputDecoration(
+                    hintText: context.loc.password_text_field_placeholder,
                   ),
                 ),
                 Center(
@@ -98,14 +96,14 @@ class _RegisterViewState extends State<RegisterView> {
                         AuthEventRegister(email,password)
                         );
                       },
-                        child: const Text('Register'),
+                        child:  Text(context.loc.register),
                       ),
                       TextButton(
                         onPressed: (){
                         context.read<AuthBloc>().add(
                         const AuthEventLogOut()
                         );}, 
-                        child: const Text('Already registered? Login here')
+                        child:  Text(context.loc.register_view_already_registered)
                           ),
                   
                     ],

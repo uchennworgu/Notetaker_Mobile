@@ -1,4 +1,3 @@
- import 'dart:math';
 
 import 'package:notetaker_practiceapp/services/auth/auth_exceptions.dart';
 import 'package:notetaker_practiceapp/services/auth/auth_provider.dart';

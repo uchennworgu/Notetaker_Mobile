@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notetaker_practiceapp/constants/route.dart';
-import 'package:notetaker_practiceapp/services/auth/auth_service.dart';
+import 'package:notetaker_practiceapp/extensions/buildcontext/loc.dart';
 import 'package:notetaker_practiceapp/services/auth/bloc/auth_bloc.dart';
 import 'package:notetaker_practiceapp/services/auth/bloc/auth_event.dart';
 
@@ -19,29 +18,31 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Verify Email'),
+        title:  Text(context.loc.verify_email),
         foregroundColor: (Colors.white),
         backgroundColor: (Colors.blue),),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Text("A verification email has been sent to your provided email. Please click on the link to within the email to verify your account."),
-            const Text('If you do not see the email in the next few buttons, please click the button below to send another verification email.'),
+             Padding(
+               padding: const EdgeInsets.all(16.0),
+               child: Text(context.loc.verify_email_view_prompt),
+             ),
             TextButton(
               onPressed: () async {
                   context.read<AuthBloc>().add(
-                    AuthEventSendEmailVerification()
+                    const AuthEventSendEmailVerification()
                     );
                   }, 
-                child: const Text('Re-send email verification'),
+                child:  Text(context.loc.verify_email_send_email_verification),
                 ),
             TextButton(
               onPressed: () {
                   context.read<AuthBloc>().add(
-                    AuthEventLogOut()
+                    const AuthEventLogOut()
                     );
                 }, 
-                child: const Text('Restart'),
+                child:  Text(context.loc.restart),
                 ),
                 ],
                 ),

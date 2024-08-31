@@ -12,11 +12,15 @@ import 'package:notetaker_practiceapp/views/notes/create_update_note_view.dart';
 import 'package:notetaker_practiceapp/views/notes/notes_view.dart';
 import 'package:notetaker_practiceapp/views/register_view.dart';
 import 'package:notetaker_practiceapp/views/verify_email_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //import 'dart:developer' as devtools show log;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized;
-  runApp(MaterialApp(
+  runApp(
+    MaterialApp(
+    supportedLocales: AppLocalizations.supportedLocales,
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
     title: 'Flutter Demo',
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
