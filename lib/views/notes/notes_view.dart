@@ -53,8 +53,8 @@ class _NotesViewState extends State<NotesView> {
             }
           }
         ),
-        foregroundColor: (Colors.white),
-        backgroundColor: (Colors.blue),
+        //foregroundColor: (Colors.white),
+       // backgroundColor: (Colors.blue),
         actions: [
           IconButton(
             onPressed: (){
@@ -80,7 +80,7 @@ class _NotesViewState extends State<NotesView> {
             return [
                PopupMenuItem<MenuAction> (
                 value: MenuAction.logout, 
-                child: Text(context.loc.logout_button)
+                child: Text(context.loc.logout_button, style:  TextStyle(color: Theme.of(context).colorScheme.background))
                 )
               ]; 
           }

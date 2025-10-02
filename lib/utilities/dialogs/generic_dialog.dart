@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 typedef DialogOptionBuilder<T> = Map<String, T?> Function();
 
+
 Future<T?> showGenericDialog<T>({
 
   required BuildContext context,
@@ -16,8 +17,9 @@ Future<T?> showGenericDialog<T>({
     context: context, 
     builder: (context){
       return AlertDialog(
-        title: Text(title),
-        content: Text(content),
+        //backgroundColor: Theme.of(context).primaryColor,
+        title: Text(title, style:  TextStyle(color: Theme.of(context).colorScheme.background)),
+        content: Text(content, style:  TextStyle(color: Theme.of(context).colorScheme.background)),
         actions: options.keys.map((optionTitle){
           final value = options[optionTitle];
           return TextButton(
@@ -28,7 +30,7 @@ Future<T?> showGenericDialog<T>({
                 Navigator.of(context).pop();
               }
           }, 
-          child: Text(optionTitle),
+          child: Text(optionTitle, style:  TextStyle(color: Theme.of(context).colorScheme.background)),
           );
         }).toList(),
       );

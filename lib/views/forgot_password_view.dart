@@ -32,6 +32,9 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
 
   @override
   Widget build(BuildContext context) {
+
+    final ThemeData theme = Theme.of(context);
+
     return BlocListener<AuthBloc,AuthState>(
       listener: (context, state) async{
         if (state is AuthStateForgotPassword){
@@ -56,9 +59,21 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+
+                const SizedBox(
+                      height: 60,
+                    ),
+
                Text(
-                context.loc.forgot_password_view_prompt
+                context.loc.forgot_password_view_prompt,
+                style: theme.textTheme.titleMedium!.copyWith(color: theme.primaryColor),textAlign: TextAlign.center,
                 ),
+
+                const SizedBox(
+                      height: 110,
+                    ),
+
+
               TextField( 
                 keyboardType: TextInputType.emailAddress,
                 autocorrect: false,
@@ -68,6 +83,11 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                   hintText: context.loc.email_text_field_placeholder,
                 ),
               ),
+
+               const SizedBox(
+                      height: 170,
+                    ),
+
               TextButton(
                 onPressed: (){
                   final email = _controller.text;

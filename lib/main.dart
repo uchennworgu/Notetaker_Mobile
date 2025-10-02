@@ -24,9 +24,49 @@ void main() {
     title: 'Flutter Demo',
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
-      colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 58, 183, 127)),
+      brightness: Brightness.light,
+      colorScheme: const ColorScheme.light(
+        background: Color(0xFFFFFBDB),
+        primary:  Color.fromARGB(255, 8, 51, 116), 
+        secondary: Color(0xFF3C91E6),
+        tertiary: Color(0xFFFFFBDB),
+      ),
       useMaterial3: true,
+
+      textTheme: const TextTheme(),
+
+      inputDecorationTheme: const InputDecorationTheme(
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.blue)
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.green)
+        )
+      ),
+
+      appBarTheme: const AppBarTheme(
+        foregroundColor:  Color(0xFFFFFBDB),
+        backgroundColor:  Color(0xFF3C91E6),
+      ),
+
+      dialogTheme: const DialogTheme(
+        backgroundColor: Color(0xFF3C91E6),
+      ),
+
+      popupMenuTheme: PopupMenuThemeData(color: Color(0xFF3C91E6)),
+
+      listTileTheme: const ListTileThemeData(
+        tileColor: Color(0xFF3C91E6),
+        textColor: Color(0xFFFFFBDB),
+        iconColor: Color(0xFFFFFBDB),
+        selectedColor: Color.fromARGB(255, 8, 51, 116), 
+   
+        )
+      
     ),
+    //darkTheme: ThemeData(),
+    //themeMode: ThemeMode.system,
+    themeMode: ThemeMode.light,
     home:  BlocProvider <AuthBloc>(
       create: (context) => AuthBloc(FirebaseAuthProvider()),
       child: const HomePage(),

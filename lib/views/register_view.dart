@@ -38,6 +38,9 @@ class _RegisterViewState extends State<RegisterView> {
 
    @override
   Widget build(BuildContext context) {
+
+    final ThemeData theme = Theme.of(context);
+
     return BlocListener<AuthBloc , AuthState>(
       listener: (context , state) async {
         if (state is AuthStateRegistering){
@@ -56,15 +59,27 @@ class _RegisterViewState extends State<RegisterView> {
       child: Scaffold(
         appBar:AppBar(
           title:  Text(context.loc.register),
-          foregroundColor: (Colors.white),
-          backgroundColor: (Colors.blue),) ,
+          //foregroundColor: (Colors.white),
+         // backgroundColor: (Colors.blue),
+          ) ,
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Text(context.loc.register_view_prompt),
+
+                 const SizedBox(
+                      height: 60,
+                    ),
+
+                
+                 Text(context.loc.register_view_prompt, style: theme.textTheme.titleMedium!.copyWith(color: theme.primaryColor),textAlign: TextAlign.center),
+
+                  const SizedBox(
+                      height: 80,
+                    ),
+
                 
                 TextField(
                   controller: _email,
@@ -76,6 +91,11 @@ class _RegisterViewState extends State<RegisterView> {
                     hintText: context.loc.email_text_field_placeholder,
                   ),
                 ),
+
+                  const SizedBox(
+                      height: 20,
+                    ),
+
                 TextField(
                   controller: _password,
                   obscureText: true,
@@ -85,6 +105,12 @@ class _RegisterViewState extends State<RegisterView> {
                     hintText: context.loc.password_text_field_placeholder,
                   ),
                 ),
+
+                  const SizedBox(
+                      height: 140,
+                    ),
+
+
                 Center(
                   child: Column(
                     children: [

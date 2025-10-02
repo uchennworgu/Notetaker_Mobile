@@ -11,6 +11,7 @@
     "verify_email": "Verifera",
     "register": "Registrera",
     "restart": "Börja om",
+    "my_notes": "Mina Anteckningar",
 
     "start_typing_your_note": "Skriv din antäckning här",
     "delete_note_prompt": "Are du säker på att du vill radera den här antäckningen?",
@@ -19,7 +20,7 @@
     "logout_dialog_prompt": "Är du säker på att du vill logga ut?",
 
     "password_reset": "Nollställ ditt lösenord",
-    "password_reset_dialog_prompt": "Vi har nu skickat ett mejl till dig. Mejlet innehåller instruktioner på hur du kan nollställa ditt lösenord!",
+    "password_reset_dialog_prompt": "Om du angav en giltig och registrerad e-postadress kommer vi att skicka en länk för återställning av lösenord. Vänligen kontrollera din e-post för mer information.",
 
     "login_error_cannot_find_user": "Kunde inte hitta en användare med de angivna uppgifter!",
     "login_error_wrong_credentials": "Fel inloggnings uppgifter!",
@@ -43,7 +44,7 @@
     "register_error_email_already_in_use": "Mejladdresset som du angav är redan taget. Var vänlig och välj ett annat mejladdress!",
     "register_error_generic": "Kunde tyvärr inte hantera din begäran. Var vänlig försök igen senare.",
     "register_error_invalid_email": "Ditt valda mejladdress verkar inte vara giltigt. Var vänlig försök med ett annat mejladdress.",
-    "register_view_prompt": "Mata in ditt mejladdress och ditt lösenord för att se dina antäckningar!",
+    "register_view_prompt": "Ange din e-postadress och ditt lösenord för att registrera dig hos My Notes!",
     "register_view_already_registered": "Redan registrerat? Logga in här!",
 
     "verify_email_view_prompt": "Vi har skickat ett mejl till ditt mejladdress. Du behöver trycka på länken i mejlet för att verifiera ditt mejladdress. Om du inte har redan fått mejlet efter en stund, tryck på knappen nedan för att skicka ett till mejl!",
