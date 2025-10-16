@@ -70,6 +70,6 @@ Minor Detail List:
 - Custom App Thumbnail Image
 
  <img src="https://user-images.githubusercontent.com/assets/screenshots/loading_screen.jpg" width="300" height="600">
- <img src="https://user-images.githubusercontent.com/assets/screenshots/app_icon.jpg" width="300" height="600">
+ <img src="assets/screenshots/app_icon.jpg" width="300" height="600">
 
 Thank you for viewing this readme, message me with any questions/concerns!
