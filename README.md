@@ -28,36 +28,36 @@ For those that are interested in more information about the application, below i
 
 - User Registration + User Email Verification
 
- <img src="https://user-images.githubusercontent.com/assets/screenshots/register_2.jpg" width="300" height="600">
- <img src="https://user-images.githubusercontent.com/assets/screenshots/register.jpg" width="300" height="600"> 
- <img src="https://user-images.githubusercontent.com/assets/screenshots/verify_email.jpg" width="300" height="600">
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/register_2.jpg" width="300" height="600"/>
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/register.jpg" width="300" height="600"/> 
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/verify_email.jpg" width="300" height="600"/>
 
 - User Account Log in (Home Screen)
- <img src="https://user-images.githubusercontent.com/assets/screenshots/home_screen.jpg" width="300" height="600">
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/home_screen.jpg" width="300" height="600"/>
 
 - User Account Recovery (Forgotten Password)
- <img src="https://user-images.githubusercontent.com/assets/screenshots/forgot_password.jpg" width="300" height="600">
- <img src="https://user-images.githubusercontent.com/assets/screenshots/password_reset_popup.jpg" width="300" height="600">
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/forgot_password.jpg" width="300" height="600"/>
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/password_reset_popup.jpg" width="300" height="600"/>
 
 - Note Creation + Note Editing + Note Deletion
 
- <img src="https://user-images.githubusercontent.com/assets/screenshots/notes_list.jpg" width="300" height="600">
- <img src="https://user-images.githubusercontent.com/assets/screenshots/note_ex.jpg" width="300" height="600">
- <img src="https://user-images.githubusercontent.com/assets/screenshots/notes_add.jpg" width="300" height="600">
- <img src="https://user-images.githubusercontent.com/assets/screenshots/note_delete_popup.jpg" width="300" height="600">
- <img src="https://user-images.githubusercontent.com/assets/screenshots/notes_subtract.jpg" width="300" height="600"> 
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/notes_list.jpg" width="300" height="600"/>
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/note_ex.jpg" width="300" height="600"/>
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/notes_add.jpg" width="300" height="600"/>
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/note_delete_popup.jpg" width="300" height="600"/>
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/notes_subtract.jpg" width="300" height="600"/> 
 
 - User Account Logout (top right corner)
 
- <img src="https://user-images.githubusercontent.com/assets/screenshots/user_logout.jpg" width="300" height="600">
- <img src="https://user-images.githubusercontent.com/assets/screenshots/logout_popup.jpg" width="300" height="600">
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/user_logout.jpg" width="300" height="600"/>
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/logout_popup.jpg" width="300" height="600"/>
 
 
 
 - Error Dialogue Popups
 
- <img src="https://user-images.githubusercontent.com/assets/screenshots/login_error.jpg" width="300" height="600">
- <img src="https://user-images.githubusercontent.com/assets/screenshots/register_error.jpg" width="300" height="600">
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/login_error.jpg" width="300" height="600"/>
+ <img src="https://user-images.githubusercontent.com/assets/screenshots/register_error.jpg" width="300" height="600"/>
 
 Minor Detail List:
 
